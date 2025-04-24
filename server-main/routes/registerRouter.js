@@ -15,6 +15,7 @@ const registeredUsers = [
 ];
 router.post("/register", async (req, res) => {
   const { name, surname, email, password, tel } = req.body;
+
   const user = { name, surname, email, password, tel };
   try {
     if (!name || !email || !password) {

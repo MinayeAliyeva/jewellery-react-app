@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<About />} />
       </Routes> */}
+      App
       {routes}
     </>
   );

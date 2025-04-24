@@ -5,7 +5,14 @@ const {
   verifyAccessToken,
 } = require("../utils/token");
 const router = require("express").Router();
-const registeredUsers = [];
+const registeredUsers = [
+  {
+    name: "Admin",
+    email: "admin@gmail.com",
+    password: "Admin@1234",
+    isAdmin: true,
+  },
+];
 router.post("/register", async (req, res) => {
   const { name, surname, email, password, tel } = req.body;
   const user = { name, surname, email, password, tel };
@@ -30,6 +37,7 @@ router.post("/register", async (req, res) => {
       tel,
       refreshToken,
       accessToken,
+      isAdmin: req.body.isAdmin ?? false,
     };
     await registeredUsers.push(newUser);
 
@@ -61,6 +69,7 @@ router.post("/login", async (req, res) => {
       res.status(404).send({ message: "Isdifadeci emaili yanlisdir!" });
       return;
     }
+    console.log("findedUser", findedUser);
 
     const accessToken = generateAccessToken(findedUser);
     const refreshToken = generateRefreshToken(findedUser);
@@ -75,12 +84,14 @@ router.post("/login", async (req, res) => {
       .status(200)
       .send({ accessToken });
   } catch (error) {
+    console.log(error);
+
     res.status(500).json({ message: "Internal server error" });
   }
 });
 
 router.post("/logout", async (req, res) => {
-  console.log("Cokkies",req.cookies);
+  console.log("Cokkies", req.cookies);
   const { refreshToken } = req.cookies;
 
   try {

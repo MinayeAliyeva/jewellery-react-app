@@ -1,3 +1,6 @@
 registeri ve logini ,logout admin ucun yaz form and validaation ==> antd, react-hook-forms, yup for validation
-superadmin==>a
+superadmin
 funksiyalari ve deyisenler
+
+qaldi==>
+geriye qayitma problemi

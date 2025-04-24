@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const MainLayout = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.setItem("isAdmin", "false");
+    localStorage.removeItem("accessToken");
     navigate("/login");
   };
 

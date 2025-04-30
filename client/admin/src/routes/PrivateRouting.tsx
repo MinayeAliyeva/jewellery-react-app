@@ -11,12 +11,10 @@ interface IDecodedValue {
   email?: string;
 }
 const PrivateRouting: FC<IPrivateRouting> = ({ children }) => {
-  const token = localStorage.getItem("accessToken") ?? false;
-  console.log("isAdmin PrivateRouting", token);
+  const token = localStorage.getItem("accessToken");
   const decoded: IDecodedValue = token ? jwtDecode(token) : { isAdmin: false };
-console.log("test",decoded.isAdmin===false);
 
-  if (decoded.isAdmin===false ) {
+  if (decoded.isAdmin === false) {
     return (
       <Navigate
         to="/login"

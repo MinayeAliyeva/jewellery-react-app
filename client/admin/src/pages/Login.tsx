@@ -9,6 +9,7 @@ const Login = () => {
     password: string;
     name: string;
   }>();
+  
   const navigate = useNavigate();
   const name = watch("name");
   const email = watch("email");

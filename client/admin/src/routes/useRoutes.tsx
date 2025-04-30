@@ -16,6 +16,7 @@ const routes: TypeRouteObject[] = [
     children: [{ index: true, element: <Login /> }],
   },
 ];
+
 const authMap = (routes: TypeRouteObject[]) => {
   return routes?.map((route: TypeRouteObject) => {
     if (route.auth) {

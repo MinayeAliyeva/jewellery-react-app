@@ -1,3 +1,4 @@
-.active{
+/* @import "tailwindcss"; */
+.active {
   background-color: yellow;
 }

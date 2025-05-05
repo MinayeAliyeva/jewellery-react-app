@@ -1,20 +1,22 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+// import RoutesComponent from "./routes";
 
-import Home from "./pages/Home";
-import MainLayout from "./layouts/MainLayout";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import WorkingExam1 from "./test/ref/WorkingExam1";
+import WorkingExam2 from "./test/ref/WorkingExam2";
+
 function App() {
+  console.log("RERENDER PARENT");
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-      </Routes>
+      {" "}
+      {/* <RoutesComponent /> */}
+      <WorkingExam1 />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <WorkingExam2 />
     </>
   );
 }

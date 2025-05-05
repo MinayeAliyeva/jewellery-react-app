@@ -28,6 +28,7 @@ router.post("/register", async (req, res) => {
     }
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
+    console.log("register refreshToken", refreshToken);
 
     const newUser = {
       id: uuidv4(),
@@ -92,8 +93,10 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", async (req, res) => {
-  console.log("Cokkies", req.cookies);
+  console.log("req", req.cookies);
+
   const { refreshToken } = req.cookies;
+  console.log("refreshToken", refreshToken);
 
   try {
     if (!refreshToken) {

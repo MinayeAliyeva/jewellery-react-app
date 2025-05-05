@@ -4,6 +4,7 @@ import axios from "axios";
 
 import InputComponent from "../components/InputComponent";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
   const { control, watch } = useForm<{
@@ -13,12 +14,14 @@ const Register = () => {
     name: string;
     tel: string;
   }>();
+  const { setToken } = useAuth();
   const navigate = useNavigate();
   const name = watch("name");
   const surname = watch("surname");
   const email = watch("email");
   const password = watch("password");
   const tel = watch("tel");
+  
   const handleClick = () => {
     axios
       .post("http://localhost:8000/api/auth/register", {
@@ -29,7 +32,8 @@ const Register = () => {
         tel,
       })
       .then((res) => {
-        localStorage.setItem("accessToken", res.data.accessToken);
+        console.log("res", res);
+        setToken(res.data.accessToken);
         navigate("/");
       });
   };
@@ -51,7 +55,7 @@ const Register = () => {
         defaultValue={""}
         size="small"
         style={{ width: "400px" }}
-        labe
+        label="name"
       />
       <InputComponent
         name="surname"
@@ -60,7 +64,7 @@ const Register = () => {
         defaultValue={""}
         size="small"
         style={{ width: "400px" }}
-        labe
+        label="surname"
       />
       <InputComponent
         name="email"
@@ -69,7 +73,7 @@ const Register = () => {
         defaultValue={""}
         size="small"
         style={{ width: "400px" }}
-        labe
+        label="email"
       />
       <InputComponent
         name="password"
@@ -78,7 +82,7 @@ const Register = () => {
         defaultValue={""}
         size="small"
         style={{ width: "400px" }}
-        labe
+        label="password"
       />
       <InputComponent
         name="tel"
@@ -87,7 +91,7 @@ const Register = () => {
         defaultValue={""}
         size="small"
         style={{ width: "400px" }}
-        labe
+        label="tel"
       />
       <Button variant="contained" onClick={handleClick}>
         Register

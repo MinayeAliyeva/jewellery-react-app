@@ -1,55 +1,49 @@
-import { ChangeEventHandler, memo, useRef, useState } from "react";
+import { memo, useState } from "react";
 import InputComponent from "../component-test/InputComponent";
 import TestUser from "../component-test/UserSidePanel";
 import CheckBoxComponent from "../component-test/CheckBoxComponent";
 import RadioBtnComponent from "../component-test/RadioBtnComponent";
 import TextAreaComponent from "../component-test/TextAreaComponent";
 
-interface IUser {
-  name?: string;
-  sname?: string;
-  age?: number;
-  check?: boolean;
-  gender?: string;
-  info?: string;
-}
+const user = {
+  name: "",
+  sname: "",
+  age: 0,
+  check: false,
+  gender: "",
+  info: "",
+};
 const WorkingExam1 = () => {
   const [showUser, setShowUser] = useState<boolean>(false);
-  const userRef = useRef<IUser>({
-    name: "",
-    sname: "",
-    age: 0,
-    check: false,
-    gender: "",
-    info: "",
-  });
-  //  HTMLInputElement | HTMLTextAreaElement
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const { name, value, checked } = e.target ?? {};
+
+  const onChange: React.ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  > = (event) => {
+    const { name, value, checked } = (event.target as HTMLInputElement) ?? {};
 
     if (name === "name") {
-      userRef.current.name = value;
+      user.name = value;
     }
     if (name === "sname") {
-      userRef.current.sname = value;
+      user.sname = value;
     }
     if (name === "age") {
-      userRef.current.age = +value;
+      user.age = +value;
     }
     if (name === "check") {
-      userRef.current.check = checked;
+      user.check = checked;
     }
     if (name === "gender") {
-      userRef.current.gender = value;
+      user.gender = value;
     }
     if (name === "info") {
-      userRef.current.info = value;
+      user.info = value;
     }
   };
   const toogleDrawer = () => {
     setShowUser(!showUser);
   };
-  console.log("exam1 userRef ", userRef.current);
+  console.log("exam1 user", user);
 
   return (
     <>
@@ -63,16 +57,13 @@ const WorkingExam1 = () => {
       <InputComponent onChange={onChange} name="age" type="number" /> <br />
       <br />
       <CheckBoxComponent
-        type="checkbox"
         label="18 yas usduyem"
         onChange={onChange}
         name="check"
-        checked={userRef.current.check}
       />{" "}
       <br />
       <br />
       <RadioBtnComponent
-        type="radio"
         id="male"
         name="gender"
         value="male"
@@ -80,7 +71,6 @@ const WorkingExam1 = () => {
         onChange={onChange}
       />
       <RadioBtnComponent
-        type="radio"
         id="female"
         name="gender"
         value="female"
@@ -88,7 +78,6 @@ const WorkingExam1 = () => {
         onChange={onChange}
       />
       <RadioBtnComponent
-        type="radio"
         id="other"
         name="gender"
         value="other"
@@ -106,7 +95,7 @@ const WorkingExam1 = () => {
       <br />
       <button onClick={toogleDrawer}>Show User</button>
       <hr />
-      <TestUser user={userRef.current} open={showUser} onClose={toogleDrawer} />
+      <TestUser user={user} open={showUser} onClose={toogleDrawer} />
     </>
   );
 };

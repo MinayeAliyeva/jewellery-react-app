@@ -1,0 +1,1 @@
+//butun komponentleri controller (watch ,getValues ilede yaz eyhnisini) et yene drawer ac sidebarda gosder

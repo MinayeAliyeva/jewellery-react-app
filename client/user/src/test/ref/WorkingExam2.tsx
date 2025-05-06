@@ -28,13 +28,12 @@ const WorkingExam2 = () => {
       <InputComponent ref={nameRef} />
       <InputComponent ref={snameRef} />
       <InputComponent ref={ageRef} type="number" />
-      <CheckBoxComponent ref={checkRef} type="checkbox" label="18 uzerimisiniz?" />
+      <CheckBoxComponent ref={checkRef}  label="18 uzerimisiniz?" />
       <RadioBtnComponent
         ref={genderRef}
         name="gender"
         id="female"
         value="female"
-        type="radio"
         label="female"
       />
       <RadioBtnComponent
@@ -42,7 +41,6 @@ const WorkingExam2 = () => {
         name="gender"
         id="mele"
         value="mele"
-        type="radio"
         label="mele"
       />
       <RadioBtnComponent
@@ -50,7 +48,6 @@ const WorkingExam2 = () => {
         name="gender"
         id="other"
         value="other"
-        type="radio"
         label="other"
       />
       <button onClick={toogleDrawer}>Show User</button>

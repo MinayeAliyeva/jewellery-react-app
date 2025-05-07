@@ -42,12 +42,13 @@ router.post("/register", async (req, res) => {
       isAdmin: req.body.isAdmin ?? false,
     };
     await registeredUsers.push(newUser);
+    console.log("registeredUsers", registeredUsers);
 
     res
       .cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: false, // `true` in production with HTTPS
-        sameSite: "Strict",
+        // sameSite: "Strict",
         // maxAge: 7 * 24 * 60 * 60 * 1000, // 7 gün
       })
       .status(201)
@@ -75,7 +76,7 @@ router.post("/login", async (req, res) => {
 
     const accessToken = generateAccessToken(findedUser);
     const refreshToken = generateRefreshToken(findedUser);
-
+    findedUser.refreshToken = refreshToken;
     res
       .cookie("refreshToken", refreshToken, {
         httpOnly: true,
@@ -93,7 +94,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", async (req, res) => {
-  console.log("req", req.cookies);
+  console.log("req", req);
 
   const { refreshToken } = req.cookies;
   console.log("refreshToken", refreshToken);
@@ -102,6 +103,7 @@ router.post("/logout", async (req, res) => {
     if (!refreshToken) {
       return res.status(400).json({ message: "Refresh token is required" });
     }
+    console.log("registeredUsers", registeredUsers);
 
     const findedUserIndex = registeredUsers.findIndex(
       (user) => user.refreshToken === refreshToken
@@ -119,7 +121,7 @@ router.post("/logout", async (req, res) => {
       .clearCookie("refreshToken")
       .status(200)
       .send({ message: "Logout is succesuflly!" });
-    res.status(200).json({ message: "Logged out", registeredUsers });
+
   } catch (error) {
     console.log("ERROR:", error);
     return res.status(500).send(error);

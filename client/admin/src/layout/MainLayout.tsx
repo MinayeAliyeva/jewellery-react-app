@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../axiosInstance";
 
 const MainLayout = () => {
   //logout api ile et
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
+    axiosInstance.post("/api/auth/logout").then((res) => {
+      console.log("response", res);
 
-    navigate("/login");
+      localStorage.removeItem("accessToken");
+      navigate("/login");
+    });
   };
 
   return (

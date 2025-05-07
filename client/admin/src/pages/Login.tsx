@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 import InputComponent from "../components/InputComponent";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../axiosInstance";
 const Login = () => {
   const { control, watch } = useForm<{
     email: string;
@@ -16,8 +16,8 @@ const Login = () => {
   const password = watch("password");
 
   const handleClick = () => {
-    axios
-      .post("http://localhost:8000/api/auth/login", {
+    axiosInstance
+      .post("/api/auth/login", {
         email,
         password,
         name,

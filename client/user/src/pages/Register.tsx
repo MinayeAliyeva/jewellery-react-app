@@ -1,10 +1,9 @@
-import { Box, Button, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-
 import InputComponent from "../components/InputComponent";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { Button, Typography } from "antd";
+import axiosInstance from "../api/axiosInstance";
 
 const Register = () => {
   const { control, watch } = useForm<{
@@ -21,10 +20,10 @@ const Register = () => {
   const email = watch("email");
   const password = watch("password");
   const tel = watch("tel");
-  
+
   const handleClick = () => {
-    axios
-      .post("http://localhost:8000/api/auth/register", {
+    axiosInstance
+      .post("/api/auth/register", {
         name,
         surname,
         password,
@@ -38,8 +37,8 @@ const Register = () => {
       });
   };
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -53,50 +52,38 @@ const Register = () => {
         control={control as any}
         placeholder="name"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        label="name"
       />
       <InputComponent
         name="surname"
         control={control as any}
         placeholder="surname"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        label="surname"
       />
       <InputComponent
         name="email"
         control={control as any}
         placeholder="email"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        label="email"
       />
       <InputComponent
         name="password"
         control={control as any}
         placeholder="password"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        label="password"
       />
       <InputComponent
         name="tel"
         control={control as any}
         placeholder="tel"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        label="tel"
       />
-      <Button variant="contained" onClick={handleClick}>
-        Register
-      </Button>
-    </Box>
+      <Button onClick={handleClick}>Register</Button>
+    </div>
   );
 };
 

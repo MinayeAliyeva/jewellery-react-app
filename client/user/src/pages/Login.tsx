@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
 import InputComponent from "../components/InputComponent";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button, Typography } from "antd";
 
 const Login = () => {
   const { control, watch } = useForm<{
@@ -27,8 +27,8 @@ const Login = () => {
       });
   };
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -43,24 +43,20 @@ const Login = () => {
         control={control as any}
         placeholder="email"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        labe
       />
       <InputComponent
         name="password"
         control={control as any}
         placeholder="password"
         defaultValue={""}
-        size="small"
         style={{ width: "400px" }}
-        labe
       />
 
-      <Button variant="contained" onClick={handleClick}>
+      <Button  onClick={handleClick}>
         Login
       </Button>
-    </Box>
+    </div>
   );
 };
 

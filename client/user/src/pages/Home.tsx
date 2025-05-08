@@ -1,15 +1,13 @@
-import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import { BASE_URL } from "../api";
+import axiosInstance from "../api/axiosInstance";
 const Home = () => {
   const { decoded } = useAuth();
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
-    axios
-      .post(`${BASE_URL}/api/auth/logout`, {}, { withCredentials: true })
+    axiosInstance
+      .post("/api/auth/logout")
       .then((res) => {
         console.log("res LOGOUT", res.data);
-        // Müvafiq olaraq useri yönləndir və ya yenilə
       })
       .catch((err) => {
         console.error("Logout error", err.response?.data);

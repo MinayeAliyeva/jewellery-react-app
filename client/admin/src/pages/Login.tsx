@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import InputComponent from "../components/InputComponent";
+import { Button } from "antd";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
@@ -9,7 +9,7 @@ const Login = () => {
     password: string;
     name: string;
   }>();
-  
+
   const navigate = useNavigate();
   const name = watch("name");
   const email = watch("email");
@@ -36,20 +36,15 @@ const Login = () => {
         control={control as any}
         placeholder="name"
         defaultValue={""}
-        error={true}
-        helperText="hhh"
-        size="small"
         style={{ width: "400px" }}
       />{" "}
+      <br />
       <br />
       <InputComponent
         name="email"
         control={control as any}
         placeholder="email"
         defaultValue={""}
-        error={true}
-        helperText="hhh"
-        size="small"
         style={{ width: "400px" }}
       />{" "}
       <br />
@@ -59,14 +54,11 @@ const Login = () => {
         control={control as any}
         placeholder="password"
         defaultValue={""}
-        error={true}
-        helperText="hhh"
-        size="small"
         style={{ width: "400px" }}
       />
       <br />
       <br />
-      <Button variant="contained" onClick={handleClick}>
+      <Button  onClick={handleClick}>
         Login{" "}
       </Button>
     </div>

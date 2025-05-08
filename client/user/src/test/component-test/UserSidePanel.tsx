@@ -1,6 +1,5 @@
-import { Box, Drawer } from "@mui/material";
 import { FC, memo } from "react";
-
+import {  Drawer, Layout } from "antd";
 interface IUser {
   user: {
     name?: string;
@@ -20,7 +19,7 @@ const UserSidePanel: FC<IUser> = ({ user, open, onClose }) => {
     <>
       <div style={{ background: "red" }}>
         <Drawer open={open} onClose={onClose}>
-          <Box sx={{ minWidth: 300 }}>
+          <Layout style={{ minWidth: 300 }}>
             {" "}
             <i>Test User Info</i>
             <h1> name:{name && name}</h1>
@@ -28,7 +27,7 @@ const UserSidePanel: FC<IUser> = ({ user, open, onClose }) => {
             <h1>age: {age && age}</h1>
             <h1>gender: {gender && gender}</h1>
             <h1>18+: {check ? "yes" : "no"}</h1>
-          </Box>
+          </Layout>
         </Drawer>
       </div>
     </>

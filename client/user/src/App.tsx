@@ -1,5 +1,7 @@
 import "./App.css";
-import WorkingExam1 from "./test/controller/WorkingExam1";
+import RoutesComponent from "./routes";
+// import WorkingExam1 from "./test/controller/WorkingExam1";
+// import WorkingExam2 from "./test/ref/WorkingExam2";
 // import RoutesComponent from "./routes";
 
 // import WorkingExam1 from "./test/ref/WorkingExam1";
@@ -11,14 +13,14 @@ function App() {
   return (
     <>
       {" "}
-      {/* <RoutesComponent /> */}
-      {/* <WorkingExam1 />
+      <RoutesComponent />
+      {/* <WorkingExam1 /> */}
       <br />
       <br />
       <br />
       <hr />
-      <WorkingExam2 /> */}
-      <WorkingExam1 />
+      {/* <WorkingExam2 />
+      <WorkingExam1 /> */}
     </>
   );
 }

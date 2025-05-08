@@ -11,9 +11,7 @@
   },
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/material": "^7.0.2",
+    "antd": "^5.25.0",
     "axios": "^1.8.4",
     "jwt-decode": "^4.0.0",
     "react": "^19.0.0",

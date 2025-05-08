@@ -1,12 +1,14 @@
-import { TextField, TextFieldProps } from "@mui/material";
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import { Controller, FieldValues, Control } from "react-hook-form";
 
-interface InputProps extends FieldValues, Omit<TextFieldProps, "name"> {
+interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "name"> {
   control: Control<FieldValues>;
   name: string;
+  labelText?: string;
+  required?: boolean;
+  defaultValue?: string;
 }
-
 const InputComponent: FC<InputProps> = ({
   name,
   required,
@@ -19,11 +21,20 @@ const InputComponent: FC<InputProps> = ({
     <>
       {labelText && <label>{labelText}</label>}
       <Controller
-        name={name as string}
+        name={name}
         control={control}
         defaultValue={defaultValue}
         rules={{ required }}
-        render={({ field }) => <TextField {...field} {...rest} />}
+        render={({ field, fieldState }) => (
+          <>
+            <input {...field} {...rest} />
+            {fieldState?.error && (
+              <div style={{ color: "red", fontSize: "12px" }}>
+                Bu xana tələb olunur
+              </div>
+            )}
+          </>
+        )}
       />
     </>
   );

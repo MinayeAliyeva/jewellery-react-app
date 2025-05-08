@@ -1,6 +1,10 @@
 registeri ve logini ,logout admin ucun yaz form and validaation ==> antd, react-hook-forms, yup for validation
 superadmin
-funksiyalari ve deyisenler
 
 qaldi==>
 geriye qayitma problemisss
+
+
+
+mui ==> antd kecir , loginden sonra products
+reactda todo app yaz todo app de bizim validasiya reuired yaz state ile

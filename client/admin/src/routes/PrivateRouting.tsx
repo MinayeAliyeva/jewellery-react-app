@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, memo, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 interface IPrivateRouting {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 interface IDecodedValue {
   isAdmin?: boolean;
@@ -26,4 +26,4 @@ const PrivateRouting: FC<IPrivateRouting> = ({ children }) => {
   return <>{children}</>;
 };
 
-export default PrivateRouting;
+export default memo(PrivateRouting);

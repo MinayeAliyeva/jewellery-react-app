@@ -1,6 +1,7 @@
 const express = require("express");
 const registerRouter = require("./routes/registerRouter");
 const userRouter = require("./routes/userRouter");
+const productRouter = require("./routes/productRouter");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const { connectionDb } = require("./db");
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use("/api/auth", registerRouter);
 app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 
 // connectionDb();
 

@@ -4,6 +4,7 @@ import TestUser from "../component-test/UserSidePanel";
 import CheckBoxComponent from "../component-test/CheckBoxComponent";
 import RadioBtnComponent from "../component-test/RadioBtnComponent";
 import TextAreaComponent from "../component-test/TextAreaComponent";
+import { useForm } from "react-hook-form";
 
 const user = {
   name: "",
@@ -15,7 +16,7 @@ const user = {
 };
 const WorkingExam1 = () => {
   const [showUser, setShowUser] = useState<boolean>(false);
-
+  const { control } = useForm();
   const onChange: React.ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (event) => {
@@ -48,13 +49,19 @@ const WorkingExam1 = () => {
   return (
     <>
       {" "}
-      <InputComponent onChange={onChange} name="name" />
+      <InputComponent onChange={onChange} name="name" control={control} />
       <br />
       <br />
-      <InputComponent onChange={onChange} name="sname" />
+      <InputComponent onChange={onChange} name="sname" control={control} />
       <br />
       <br />
-      <InputComponent onChange={onChange} name="age" type="number" /> <br />
+      <InputComponent
+        onChange={onChange}
+        name="age"
+        type="number"
+        control={control}
+      />{" "}
+      <br />
       <br />
       <CheckBoxComponent
         label="18 yas usduyem"

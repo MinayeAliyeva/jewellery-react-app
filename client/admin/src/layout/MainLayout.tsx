@@ -1,22 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import axiosInstance from "../axiosInstance";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
-  //logout api ile et
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    axiosInstance.post("/api/auth/logout").then((res) => {
-      console.log("response", res);
-
-      localStorage.removeItem("accessToken");
-      navigate("/login");
-    });
-  };
-
   return (
     <div>
-      MainLayout
-      <button onClick={handleLogout}>Logout</button>
+      <Outlet />
     </div>
   );
 };

@@ -1,0 +1,6 @@
+ 
+ Task1: refactoring PrivateRoutingde.tsx handlerFn =>return etsin decodeded,helper  accessToken ucunde yaz 
+ Task2:localstorage aid olan xususiyyetlerin her biri ucun helper  GET,SET,REMOVE,DELETE
+ Task 3:Login terefde validasiya front side RHF or aNtd (YUP)
+ Task 4: Evvelki product sehifesi amma simple seviyede
+ 

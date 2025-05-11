@@ -58,9 +58,7 @@ const Login = () => {
       />
       <br />
       <br />
-      <Button  onClick={handleClick}>
-        Login{" "}
-      </Button>
+      <Button onClick={handleClick}>Login </Button>
     </div>
   );
 };

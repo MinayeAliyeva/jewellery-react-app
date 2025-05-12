@@ -1,6 +1,10 @@
  
- Task1: refactoring PrivateRoutingde.tsx handlerFn =>return etsin decodeded,helper  accessToken ucunde yaz 
- Task2:localstorage aid olan xususiyyetlerin her biri ucun helper  GET,SET,REMOVE,DELETE
+ Task1: refactoring PrivateRoutingde.tsx handlerFn =>return etsin decodeded,helper  accessToken ucunde yaz +
+ Task2:localstorage aid olan xususiyyetlerin her biri ucun helper  GET,SET,REMOVE,DELETE+
  Task 3:Login terefde validasiya front side RHF or aNtd (YUP)
- Task 4: Evvelki product sehifesi amma simple seviyede
+ Task 4: Evvelki product sehifesi amma simple seviyede ==>PRODUCT TABLENI HAZIRLA PRODUCTSList.tsx
+ ROADMAP, iki video
+ Task 5: TODO APP :lessonsForm ucun table hazirla hemin tablede search sort islemleri olsun !!!
+ onFinishi componentin daxilinde klik edende satani state saxlayacam hemin data ttablede gosderilecek 
+
  

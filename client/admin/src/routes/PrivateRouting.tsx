@@ -1,19 +1,15 @@
 import { FC, memo, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+import { decodeUser } from "../helpers/decodeUser";
+import { getLocalStorage } from "../helpers/localStorage";
 
 interface IPrivateRouting {
   children: ReactNode;
 }
-interface IDecodedValue {
-  isAdmin?: boolean;
-  name?: string;
-  email?: string;
-}
-const PrivateRouting: FC<IPrivateRouting> = ({ children }) => {
-  const token = localStorage.getItem("accessToken");
-  const decoded: IDecodedValue = token ? jwtDecode(token) : { isAdmin: false };
 
+const PrivateRouting: FC<IPrivateRouting> = ({ children }) => {
+  const token = getLocalStorage("accessToken");
+  const decoded = decodeUser(token!);
   if (decoded.isAdmin === false) {
     return (
       <Navigate

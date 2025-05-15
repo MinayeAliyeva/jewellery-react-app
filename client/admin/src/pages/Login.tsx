@@ -1,4 +1,4 @@
-import InputComponent from "../components/InputComponent";
+import Input from "../components/ui/Input";
 import { Button } from "antd";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div>
       <h1> Login</h1>
-      <InputComponent
+      <Input
         name="name"
         control={control as any}
         placeholder="name"
@@ -40,7 +40,7 @@ const Login = () => {
       />{" "}
       <br />
       <br />
-      <InputComponent
+      <Input
         name="email"
         control={control as any}
         placeholder="email"
@@ -49,7 +49,7 @@ const Login = () => {
       />{" "}
       <br />
       <br />
-      <InputComponent
+      <Input
         name="password"
         control={control as any}
         placeholder="password"

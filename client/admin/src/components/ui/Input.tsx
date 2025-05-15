@@ -1,4 +1,4 @@
-import { Input, InputProps } from "antd";
+import { Input as AntdInput, InputProps } from "antd";
 import { FC } from "react";
 import { Controller, FieldValues, Control } from "react-hook-form";
 
@@ -9,7 +9,7 @@ interface IInputProps extends InputProps {
   required?: boolean;
   defaultValue?: string;
 }
-const InputComponent: FC<IInputProps> = ({
+const Input: FC<IInputProps> = ({
   name,
   required,
   labelText,
@@ -27,7 +27,7 @@ const InputComponent: FC<IInputProps> = ({
         rules={{ required }}
         render={({ field, fieldState }) => (
           <>
-            <Input {...field} {...rest} />
+            <AntdInput {...field} {...rest} />
             {fieldState?.error && (
               <div style={{ color: "red", fontSize: "12px" }}>
                 Bu xana tələb olunur
@@ -40,4 +40,4 @@ const InputComponent: FC<IInputProps> = ({
   );
 };
 
-export default InputComponent;
+export default Input;

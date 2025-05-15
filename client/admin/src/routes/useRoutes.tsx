@@ -3,7 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import Login from "../pages/Login";
 import PrivateRouting from "./PrivateRouting";
-import Products from "../pages/Products";
+import Products from "../pages/products";
 type TypeRouteObject = RouteObject & { auth?: boolean };
 export enum RoutePaths {
   MAIN = "/",

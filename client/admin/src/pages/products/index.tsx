@@ -55,6 +55,7 @@ const Products = () => {
       title: product?.title,
     })
   );
+  console.log("te");
 
   return (
     <>
@@ -63,7 +64,7 @@ const Products = () => {
       <Button buttonText="Add Limit" onClick={addLimit} />
       <Table<{ title: string }>
         columns={columns}
-        dataSource={dataSourceTitle }
+        dataSource={dataSourceTitle}
       />
     </>
   );

@@ -15,7 +15,7 @@ const Table = <T extends object>({
   columns,
   data,
 }: {
-  columns: ColumnsType<T> | { dataIndex: string }[];
+  columns: ColumnsType<T>;
   data: T[];
 }) => {
   const [searchText, setSearchText] = useState("");
@@ -104,7 +104,7 @@ const Table = <T extends object>({
   });
 
   const convertedColumns = columns?.map(
-    (column: ColumnType<T> | { dataIndex: string }) => ({
+    (column: ColumnType<T> | { dataIndex?: string }) => ({
       ...column,
       ...getColumnSearchProps(column?.dataIndex as string),
     })

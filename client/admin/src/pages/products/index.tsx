@@ -6,16 +6,21 @@ import { getAllProducts } from "../../api/product";
 import { AxiosError } from "axios";
 import Button from "../../components/form/Button";
 import Alert from "../../components/alert/Alert";
+import Spin from "../../components/spinner/Spin";
+import Table from "../../components/table/Table";
+import { columns } from "./data";
+import { ColumnsType } from "antd/es/table";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [products, setProducts] = useState<IProduct[]>([]);
-
+  console.log({ products });
   const { control, getValues } = useForm();
   const fetchAllProducts = ({ limit }: IProductsParams) => {
     getAllProducts({ limit })
       .then((res) => {
+        setLoading(true);
         if (!res?.data?.products?.length) {
           setError("Does not found!!!");
           return;
@@ -43,14 +48,23 @@ const Products = () => {
     fetchAllProducts({ limit });
   };
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spin />;
   }
+  const dataSourceTitle: { title: string }[] = products?.map(
+    (product: IProduct) => ({
+      title: product?.title,
+    })
+  );
 
   return (
     <>
       {error && <Alert type="error" message={error} />}
       <Input name="limit" control={control} />
       <Button buttonText="Add Limit" onClick={addLimit} />
+      <Table<{ title: string }>
+        columns={columns}
+        dataSource={dataSourceTitle }
+      />
     </>
   );
 };

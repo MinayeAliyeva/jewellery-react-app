@@ -9,7 +9,6 @@ import Alert from "../../components/alert/Alert";
 import Spin from "../../components/spinner/Spin";
 import Table from "../../components/table/Table";
 import { columns } from "./data";
-import { ColumnsType } from "antd/es/table";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -50,11 +49,7 @@ const Products = () => {
   if (loading) {
     return <Spin />;
   }
-  const dataSourceTitle: { title: string }[] = products?.map(
-    (product: IProduct) => ({
-      title: product?.title,
-    })
-  );
+
   console.log("te");
 
   return (
@@ -62,10 +57,7 @@ const Products = () => {
       {error && <Alert type="error" message={error} />}
       <Input name="limit" control={control} />
       <Button buttonText="Add Limit" onClick={addLimit} />
-      <Table<{ title: string }>
-        columns={columns}
-        dataSource={dataSourceTitle}
-      />
+      <Table<IProduct> columns={columns} dataSource={products} />
     </>
   );
 };

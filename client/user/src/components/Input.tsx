@@ -1,20 +1,23 @@
 import { FC, InputHTMLAttributes } from "react";
 import { Controller, FieldValues, Control } from "react-hook-form";
-
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "name"> {
+import { Input as AntdInput } from "antd";
+interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "name"> {
   control: Control<FieldValues>;
   name: string;
   labelText?: string;
   required?: boolean;
   defaultValue?: string;
+  error?: string;
 }
 
-const InputComponent: FC<InputProps> = ({
+const Input: FC<InputProps> = ({
   name,
   required,
   labelText,
   control,
   defaultValue = "",
+  error,
   ...rest
 }) => {
   return (
@@ -25,13 +28,11 @@ const InputComponent: FC<InputProps> = ({
         control={control}
         defaultValue={defaultValue}
         rules={{ required }}
-        render={({ field, fieldState }) => (
+        render={({ field }) => (
           <>
-            <input {...field} {...rest} />
-            {fieldState?.error && (
-              <div style={{ color: "red", fontSize: "12px" }}>
-                Bu xana tələb olunur
-              </div>
+            <AntdInput {...field} {...rest} />
+            {error && (
+              <div style={{ color: "red", fontSize: "12px" }}>{error}</div>
             )}
           </>
         )}
@@ -40,4 +41,4 @@ const InputComponent: FC<InputProps> = ({
   );
 };
 
-export default InputComponent;
+export default Input;

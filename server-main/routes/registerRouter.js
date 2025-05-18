@@ -14,6 +14,7 @@ const registeredUsers = [
   },
 ];
 router.post("/register", async (req, res) => {
+  console.log(req.body);
   const { name, surname, email, password, tel } = req.body;
 
   const user = { name, surname, email, password, tel };
@@ -121,7 +122,6 @@ router.post("/logout", async (req, res) => {
       .clearCookie("refreshToken")
       .status(200)
       .send({ message: "Logout is succesuflly!" });
-
   } catch (error) {
     console.log("ERROR:", error);
     return res.status(500).send(error);

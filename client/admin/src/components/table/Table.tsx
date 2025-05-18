@@ -11,12 +11,12 @@ import { ColumnsType } from "antd/es/table";
 import { ColumnType, FilterDropdownProps } from "antd/es/table/interface";
 import { useRef, useState } from "react";
 
-const Table = <T extends object>({
+const Table = <T extends Record<string, any>>({
   columns,
-  data,
+  dataSource,
 }: {
   columns: ColumnsType<T>;
-  data: T[];
+  dataSource: T[];
 }) => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
@@ -112,7 +112,7 @@ const Table = <T extends object>({
 
   return (
     <>
-      <AntdTable columns={convertedColumns} dataSource={data} />
+      <AntdTable columns={convertedColumns} dataSource={dataSource} />
     </>
   );
 };

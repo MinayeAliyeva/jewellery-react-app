@@ -1,8 +1,7 @@
-import { FC, InputHTMLAttributes } from "react";
+import { FC } from "react";
 import { Controller, FieldValues, Control } from "react-hook-form";
-import { Input as AntdInput } from "antd";
-interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "name"> {
+import { Input as AntdInput, InputProps } from "antd";
+interface IInputProps extends InputProps {
   control: Control<FieldValues>;
   name: string;
   labelText?: string;
@@ -11,7 +10,7 @@ interface InputProps
   error?: string;
 }
 
-const Input: FC<InputProps> = ({
+const Input: FC<IInputProps> = ({
   name,
   required,
   labelText,

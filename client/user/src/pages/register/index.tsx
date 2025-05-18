@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import InputComponent from "../components/Input";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import { Button, Typography } from "antd";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axiosInstance from "../api/axiosInstance";
 import * as Yup from "yup";
+import { useAuth } from "../../context/AuthContext";
+import axiosInstance from "../../api/axiosInstance";
+import Input from "../../components/Input";
 interface IUseForm {
   email: string;
   password: string;
@@ -56,7 +56,7 @@ const Register = () => {
       }}
     >
       <Typography>Register</Typography>
-      <InputComponent
+      <Input
         name="name"
         control={control as any}
         placeholder="name"
@@ -64,7 +64,7 @@ const Register = () => {
         defaultValue={""}
         style={{ width: "400px" }}
       />
-      <InputComponent
+      <Input
         name="surname"
         control={control as any}
         error={errors.surname?.message}
@@ -72,7 +72,7 @@ const Register = () => {
         defaultValue={""}
         style={{ width: "400px" }}
       />
-      <InputComponent
+      <Input
         name="email"
         control={control as any}
         placeholder="email"
@@ -80,7 +80,7 @@ const Register = () => {
         style={{ width: "400px" }}
         error={errors.email?.message}
       />
-      <InputComponent
+      <Input
         name="password"
         control={control as any}
         placeholder="password"
@@ -88,7 +88,7 @@ const Register = () => {
         style={{ width: "400px" }}
         error={errors.password?.message}
       />
-      <InputComponent
+      <Input
         name="tel"
         control={control as any}
         placeholder="tel"

@@ -39,9 +39,9 @@ const Products = () => {
       });
   };
   useEffect(() => {
-    setLoading(true);
     fetchAllProducts({});
   }, []);
+  
   const addLimit = () => {
     const limit = getValues("limit");
     fetchAllProducts({ limit });

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import axiosInstance from "../api/axiosInstance";
-import Button from "../components/Button";
-import InputComponent from "../components/Input";
-import { useAuth } from "../context/AuthContext";
-import { getAllUsers } from "../api/user";
-import { IUser } from "../utils/types";
+import { IUser } from "./models";
+import { useAuth } from "../../context/AuthContext";
+import axiosInstance from "../../api/axiosInstance";
+import { getAllUsers } from "../../api/user";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import { AxiosError } from "axios";
+
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<IUser[]>([]);
   const [error, setError] = useState("");
+  console.log("USERS", users);
   const { decoded } = useAuth();
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -24,23 +27,31 @@ const Home = () => {
   };
 
   const { control, getValues } = useForm();
-  const limit = getValues("limit");
 
   const fetchAllUsers = ({ limit }: { limit?: string }) => {
     setLoading(true);
     getAllUsers({ limit })
       .then((res) => {
+        console.log("res?.data.users", res);
         setUsers(res?.data.users);
       })
-      .catch((err) => setError(err))
+      .catch((err) => {
+        console.log("err", err);
+        const { message } = err as AxiosError;
+        setError(message);
+      })
       .finally(() => setLoading(false));
   };
+
   useEffect(() => {
     fetchAllUsers({});
   }, []);
+
   const addLimit = () => {
+    const limit = getValues("limit");
     fetchAllUsers({ limit });
   };
+  console.log("error", error);
 
   if (error) {
     return <>{error}</>;
@@ -67,11 +78,7 @@ const Home = () => {
               </div>
             )}
           </div>
-          <InputComponent
-            control={control}
-            name="limit"
-            style={{ width: "200px" }}
-          />
+          <Input control={control} name="limit" style={{ width: "200px" }} />
           <Button buttonText="Add Limit" onClick={() => addLimit()} />
           {users?.map((user) => (
             <p>{user?.firstName}</p>

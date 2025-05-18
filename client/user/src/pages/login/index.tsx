@@ -1,8 +1,8 @@
-import InputComponent from "../components/Input";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "antd";
+import Input from "../../components/Input";
 
 const Login = () => {
   const { control, watch } = useForm<{
@@ -38,14 +38,14 @@ const Login = () => {
     >
       <Typography>Login</Typography>
 
-      <InputComponent
+      <Input
         name="email"
         control={control as any}
         placeholder="email"
         defaultValue={""}
         style={{ width: "400px" }}
       />
-      <InputComponent
+      <Input
         name="password"
         control={control as any}
         placeholder="password"

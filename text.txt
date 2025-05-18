@@ -1,10 +1,18 @@
-registeri ve logini ,logout admin ucun yaz form and validaation ==> antd, react-hook-forms, yup for validation
-superadmin
-
-qaldi==>
-geriye qayitma problemisss
 
 
 
-mui ==> antd kecir , loginden sonra products
-reactda todo app yaz todo app de bizim validasiya reuired yaz state ile
+
+
+
+reactda todo app yaz todo app de 
+
+ Task 4: Evvelki product sehifesi amma simple seviyede ==>PRODUCT TABLENI HAZIRLA PRODUCTSList.tsx
+ Task 3:Login terefde validasiya front side RHF or aNtd (YUP) + number userName 3 herf Logindede et
+ ROADMAP, iki video + 2 add +
+ Task 5: TODO APP :lessonsForm ucun table hazirla hemin tablede search sort islemleri olsun !!!
+
+ onFinishi componentin daxilinde klik edende satani state saxlayacam hemin data ttablede gosderilecek 
+
+ Home page ==> ilk acilanda producktlar , UI yaxsi olacaq 
+
+ 

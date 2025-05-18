@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRouting from "../layouts/PrivateRouting";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Home from "../pages/home";
+import Login from "../pages/login";
+import Register from "../pages/register";
 
 const RoutesComponent = () => {
   return (

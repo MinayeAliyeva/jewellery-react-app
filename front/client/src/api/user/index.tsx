@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USERS_URL = "https://dummyjsssson.com/users";
+const USERS_URL = "https://dummyjson.com/users";
 export const getAllUsers = ({ limit }: { limit?: string }) => {
   console.log({ limit });
   if (!limit) {

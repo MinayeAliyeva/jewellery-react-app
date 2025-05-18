@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { IUser } from "./models";
 import { useAuth } from "../../context/AuthContext";
 import axiosInstance from "../../api/axiosInstance";
 import { getAllUsers } from "../../api/user";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { AxiosError } from "axios";
+import { IUser } from "./models";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);

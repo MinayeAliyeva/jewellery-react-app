@@ -38,9 +38,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: IUseForm) => {
-    console.log(data);
     axiosInstance.post("/api/auth/register", data).then((res) => {
-      console.log("res", res);
       setToken(res.data.accessToken);
       navigate("/");
     });

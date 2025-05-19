@@ -13,7 +13,6 @@ interface IUser {
 }
 
 const UserSidePanel: FC<IUser> = ({ user, open, onClose }) => {
-  console.log("Rerender Child ");
   const { name, sname, age, gender, check } = user ?? {};
   return (
     <>

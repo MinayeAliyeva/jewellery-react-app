@@ -4,13 +4,13 @@ import { CiMenuBurger, CiUser } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 const Header = () => {
   return (
-    <div className="bg-blue-500 shadow-sm top-0">
+    <div className="bg-[rgb(252,234,203)] shadow-sm top-0">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link
           className="text-2xl text-white font-bold hover:text-blue-700 "
           to="/"
         >
-          Logo
+          MK
         </Link>
         <nav className="hidden md:flex space-x-6">
           <Link className="text-white font-bold hover:underline" to="/">

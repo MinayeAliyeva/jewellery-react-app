@@ -8,7 +8,6 @@ interface IProps {
 const PrivateRouting: FC<IProps> = ({ children }) => {
   const token = localStorage.getItem("accessToken");
   const decodedUser = token ? jwtDecode(token) : null;
-  console.log("privaterouting decodedUser", decodedUser);
 
   if (!decodedUser) {
     return <Navigate to="/register" />;

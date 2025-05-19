@@ -7,13 +7,10 @@ interface IDecoded {
   email?: string;
 }
 function MainLayout() {
-  console.log("MainLayout RERENDER");
 
   const user = localStorage.getItem("accessToken");
-  console.log("user", user);
 
   const decoded: IDecoded = user ? jwtDecode(user) : {};
-  console.log("decoded", decoded);
 
   // return (
   //   <>

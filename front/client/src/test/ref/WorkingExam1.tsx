@@ -44,7 +44,6 @@ const WorkingExam1 = () => {
   const toogleDrawer = () => {
     setShowUser(!showUser);
   };
-  console.log("exam1 user", user);
 
   return (
     <>

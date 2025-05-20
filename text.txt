@@ -5,10 +5,13 @@
 
 
 reactda todo app yaz todo app de 
-
+Admin
  Task 4: Evvelki product sehifesi amma simple seviyede ==>PRODUCT TABLENI HAZIRLA PRODUCTSList.tsx
  Task 3:Login terefde validasiya front side RHF or aNtd (YUP) + number userName 3 herf Logindede et
  ROADMAP, iki video + 2 add +
+
+
+
  Task 5: TODO APP :lessonsForm ucun table hazirla hemin tablede search sort islemleri olsun !!!
 
  onFinishi componentin daxilinde klik edende satani state saxlayacam hemin data ttablede gosderilecek 
@@ -16,3 +19,15 @@ reactda todo app yaz todo app de
  Home page ==> ilk acilanda producktlar , UI yaxsi olacaq 
 
  
+
+ CLIENT
+ Task 1:2 search input olacaq biri homeun usdu biri de geaderde filter islemi ucun product.title gore biri client side biri server side
+ Task 2: 
+Redux , ContextApi ,Zustand
+Header =>search input (server)
+
+Home=>products from Api (server)
+
+Task3:Headeri ,footeri duzeldecem , ==> yeni login register cixar 
+
+

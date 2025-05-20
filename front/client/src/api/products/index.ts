@@ -1,7 +1,9 @@
-import axios from "axios";
-import { IProduct } from "./models";
+import axios, { AxiosResponse } from "axios";
+import { IProductResponseDto } from "./models";
 
 export const PRODUCTS_URL = "https://dummyjson.com/products";
-export const getAllProducts = (): Promise<IProduct[]> => {
-  return axios.get(`${PRODUCTS_URL}`).then((res) => res.data.products);
+export const getAllProducts = (): Promise<
+  AxiosResponse<IProductResponseDto>
+> => {
+  return axios.get<IProductResponseDto>(`${PRODUCTS_URL}`);
 };

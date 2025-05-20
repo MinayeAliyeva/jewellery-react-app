@@ -34,11 +34,9 @@ const Header = () => {
           <Link to="/login">
             <Button icon={<CiUser className="font-bold text-md" />} />
           </Link>
-          {/* <ModeToggle /> */}
           <div className="md:hidden inline-flex items-center justify-center p-1 rounded-md border border-gray-300 bg-white text-black text-2xl hover:bg-gray-100 cursor-pointer">
             <CiMenuBurger />
           </div>
-          {/* <MobileMenu /> */}
         </div>
       </div>
     </div>

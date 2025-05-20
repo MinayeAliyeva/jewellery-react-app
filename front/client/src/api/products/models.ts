@@ -43,3 +43,10 @@ export interface IProduct {
   images: string[];
   thumbnail: string;
 }
+
+export interface IProductResponseDto {
+  limit: number;
+  products: IProduct[];
+  skip: number;
+  total: number;
+}

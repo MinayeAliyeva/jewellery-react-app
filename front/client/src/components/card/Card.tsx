@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { HeartOutlined, ShoppingOutlined } from "@ant-design/icons";
 import { Card as AntdCard } from "antd";
-import { IProduct } from "../api/products/models";
+import { IProduct } from "../../api/products/models";
 
 const { Meta } = AntdCard;
 interface ICardComponent {

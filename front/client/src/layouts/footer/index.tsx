@@ -1,52 +1,32 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/Button";
-import { FacebookFilled, InstagramFilled, LinkedinFilled } from "@ant-design/icons";
+import {
+  InstagramOutlined,
+  LinkedinOutlined,
+  FacebookOutlined,
+} from "@ant-design/icons";
+
 const Footer = () => {
   return (
-    <div className="bg-gray-600 text-white py-6">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <div className="text-center md:text-left space-y-4">
-          <Link className="text-white font-bold text-2xl" to="/">
-            Logo
-          </Link>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit consectetur
-            adipisicing elit consectetur adipisicing elit
-          </p>
-        </div>
-        <nav className="md:mt-0 mt-8 space-x-4">
-          <Link className="text-white hover:text-gray-300 font-bold" to="/">
-            Home
-          </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            to="/about"
-          >
-            About
-          </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            to="/contact"
-          >
-            Contact
-          </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            to="/products"
-          >
-            Products
-          </Link>
-        </nav>
-
-        <div className="md:mt-0 mt-8 space-x-4">
-          <Button icon={<FacebookFilled />} />
-
-          <Button icon={<InstagramFilled />} />
-
-          <Button icon={<LinkedinFilled />} />
-        </div>
+    <footer className="flex items-center justify-around p-5 bg-[rgb(253,235,204)] mt-10">
+      <div>© 2025 YourCompany</div>
+      <div className="flex gap-10">
+        <Link to="/">Home</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </div>
-    </div>
+      <div className="flex gap-5 text-2xl">
+        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <InstagramOutlined />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <LinkedinOutlined />
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <FacebookOutlined />
+        </a>
+      </div>
+    </footer>
   );
 };
 

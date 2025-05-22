@@ -1,8 +1,8 @@
 import { getAllProducts } from "../../api/products";
 import { IProduct } from "../../api/products/models";
-import Spin from "../../components/Spin";
+import Spin from "../../components/spin/Spin";
 import { Col, Row } from "antd";
-import Card from "../../components/CardComponent";
+import Card from "../../components/card/Card";
 import useGetData from "../../hooks/useGetData";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     fethAllData: getAllProducts,
     key: "products",
   });
-  console.log("dataList", dataList);
+
   if (loading) {
     return (
       <div className="flex items-center  justify-center h-screen">
@@ -18,8 +18,12 @@ const Home = () => {
       </div>
     );
   }
+
   if (error) {
     return <div className="text-red-600 ">Error:{error}</div>;
+  }
+  if (!dataList || dataList.length === 0) {
+    return <div>No products available</div>;
   }
   return (
     <>

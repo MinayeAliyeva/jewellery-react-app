@@ -2,37 +2,19 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "antd";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import { useAuth } from "../../context/AuthContext";
 import axiosInstance from "../../api/axiosInstance";
-import Input from "../../components/Input";
-interface IUseForm {
-  email: string;
-  password: string;
-  surname: string;
-  name: string;
-  tel: string;
-}
-const schema = Yup.object({
-  name: Yup.string().required("Name is reqiured"),
-  surname: Yup.string().required("Surname is required"),
-  email: Yup.string().email("Email is not valid").required("Email is required"),
-  password: Yup.string()
-    .required("Password is required")
-    .min(8, "Password must be 8 simbol")
-    .matches(/[a-z]/, "Least one lower letter")
-    .matches(/[A-Z]/, "Least one upper letter")
-    .matches(/\d/, "Least one digit letter")
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, "Least one spesific character"),
-  tel: Yup.string().required("tel required"),
-});
+import Input from "../../components/input/Input";
+import { registerSchema } from "../../components/validation/registerSchema";
+import { IUseForm } from "../../types";
+
 
 const Register = () => {
   const {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<IUseForm>({ resolver: yupResolver(schema) });
+  } = useForm<IUseForm>({ resolver: yupResolver(registerSchema) });
 
   const { setToken } = useAuth();
   const navigate = useNavigate();

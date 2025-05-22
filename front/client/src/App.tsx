@@ -5,7 +5,6 @@ import RoutesComponent from "./routes";
 function App() {
   return (
     <>
-      {" "}
       <RoutesComponent />
     </>
   );
